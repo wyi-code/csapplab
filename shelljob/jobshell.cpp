@@ -1,6 +1,7 @@
 
 #include "csapp.h"
 #include "job.h"
+#include <iostream>
 
 #define MAXARGS 128
 void eval(char *cmdline);
@@ -10,6 +11,7 @@ int builtin_command(char **argv);
 
 int main(int argc, char **argv, char**env)
 {
+    std::cout<<"hello c++"<<std::endl;
     char cmdline[MAXLINE];
     while(1)
     {
@@ -53,7 +55,7 @@ void eval(char *cmdline)
             int status;
             if(waitpid(pid,&status,0)<0)
             {
-                unix_error("waitfg: waitpid error");
+                std::cout<<("waitfg: waitpid error");
             }
         }
         else
