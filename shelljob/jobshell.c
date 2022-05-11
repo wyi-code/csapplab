@@ -1,5 +1,6 @@
 
 #include "csapp.h"
+#include "job.h"
 
 #define MAXARGS 128
 void eval(char *cmdline);
