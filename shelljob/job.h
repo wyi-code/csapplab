@@ -118,8 +118,6 @@ void JobShell::eval(char *cmdline)
     }
 }
 
-
-
 State JobShell::parseline(char *buf,char **argv)
 {
     char *delim;
@@ -194,7 +192,6 @@ int JobShell::builtin_command(char **argv)
     return 0;
 }
 
-
 bool JobShell::isJobCommand(char **cmd)
 {
     char str[MAXLINE]="./";
@@ -256,6 +253,7 @@ void JobShell::doBg(char **argv)
     Kill(-(job->pid),SIGCONT);
     std::cout << "Job ["<<job->pid<<"] ("<<job->jid<<") "<<"foo";
 }
+
 void JobShell::doFg(char **argv)
 {
     int jid;
@@ -313,7 +311,6 @@ void JobShell::waitFg(pid_t pid)
     }
 }
 
-
 std::shared_ptr<job_t>JobShell::getJob(pid_t pid)
 {
     if(jobs.size()==0)return nullptr;
@@ -355,6 +352,7 @@ void JobShell::addJob(std::shared_ptr<job_t> job)
     if(job==nullptr)return;
     jobs.push_back(job);
 }
+
 void JobShell::removeJob(pid_t pid)
 {
     if(jobs.size()==0)return;
@@ -365,9 +363,8 @@ void JobShell::removeJob(pid_t pid)
             return;
         }
     }
-    
-
 }
+
 pid_t JobShell::jidToPid(int jid)
 {
     if(jobs.size()==0)return 0;

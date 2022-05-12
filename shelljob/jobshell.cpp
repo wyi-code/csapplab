@@ -20,9 +20,7 @@ int main(int argc, char **argv, char**env)
         if(feof(stdin))
             exit(0);
 
-        //jShell->eval(cmdline);
         JSh->eval(cmdline);
-        fflush(stdout);
         fflush(stdout);
         fflush(stdout);
     }
